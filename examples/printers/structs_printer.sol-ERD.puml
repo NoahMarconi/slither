@@ -1,0 +1,25 @@
+@startuml examples/printers/structs_printer.sol
+
+package IStructsChild {
+
+    struct IStructsChild.Child {
+        bytes data
+    }
+
+}
+
+
+
+package Structs {
+
+    struct Structs.Parent {
+        address addy
+        uint256 num
+        IStructsChild.Child child
+    }
+
+}
+
+Structs.Parent::child --> IStructsChild.Child
+
+@enduml
