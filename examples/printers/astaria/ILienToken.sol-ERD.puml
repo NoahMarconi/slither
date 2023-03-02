@@ -61,57 +61,57 @@ package IAstariaRouter {
     }
 
     struct IAstariaRouter.File {
-        IAstariaRouter.FileType what
-        bytes data
+        {field}IAstariaRouter.FileType what
+        {field}bytes data
     }
 
     struct IAstariaRouter.RouterStorage {
-        uint32 auctionWindow
-        uint32 liquidationFeeNumerator
-        uint32 liquidationFeeDenominator
-        uint32 maxEpochLength
-        uint32 minEpochLength
-        uint32 protocolFeeNumerator
-        uint32 protocolFeeDenominator
-        ICollateralToken(address) COLLATERAL_TOKEN
-        ILienToken(address) LIEN_TOKEN
-        ITransferProxy(address) TRANSFER_PROXY
-        address feeTo
-        address BEACON_PROXY_IMPLEMENTATION
-        uint256 maxInterestRate
-        address guardian
-        address newGuardian
-        mapping(uint8 => address) strategyValidators
-        mapping(uint8 => address) implementations
-        mapping(address => bool) vaults
+        {field}uint32 auctionWindow
+        {field}uint32 liquidationFeeNumerator
+        {field}uint32 liquidationFeeDenominator
+        {field}uint32 maxEpochLength
+        {field}uint32 minEpochLength
+        {field}uint32 protocolFeeNumerator
+        {field}uint32 protocolFeeDenominator
+        {field}ICollateralToken(address) COLLATERAL_TOKEN
+        {field}ILienToken(address) LIEN_TOKEN
+        {field}ITransferProxy(address) TRANSFER_PROXY
+        {field}address feeTo
+        {field}address BEACON_PROXY_IMPLEMENTATION
+        {field}uint256 maxInterestRate
+        {field}address guardian
+        {field}address newGuardian
+        {field}mapping(uint8 => address) strategyValidators
+        {field}mapping(uint8 => address) implementations
+        {field}mapping(address => bool) vaults
     }
 
     struct IAstariaRouter.StrategyDetailsParam {
-        uint8 version
-        uint256 deadline
-        address vault
+        {field}uint8 version
+        {field}uint256 deadline
+        {field}address vault
     }
 
     struct IAstariaRouter.MerkleData {
-        bytes32 root
-        bytes32[] proof
+        {field}bytes32 root
+        {field}bytes32[] proof
     }
 
     struct IAstariaRouter.NewLienRequest {
-        IAstariaRouter.StrategyDetailsParam strategy
-        ILienToken.Stack[] stack
-        bytes nlrDetails
-        IAstariaRouter.MerkleData merkle
-        uint256 amount
-        uint8 v
-        bytes32 r
-        bytes32 s
+        {field}IAstariaRouter.StrategyDetailsParam strategy
+        {field}ILienToken.Stack[] stack
+        {field}bytes nlrDetails
+        {field}IAstariaRouter.MerkleData merkle
+        {field}uint256 amount
+        {field}uint8 v
+        {field}bytes32 r
+        {field}bytes32 s
     }
 
     struct IAstariaRouter.Commitment {
-        address tokenContract
-        uint256 tokenId
-        IAstariaRouter.NewLienRequest lienRequest
+        {field}address tokenContract
+        {field}uint256 tokenId
+        {field}IAstariaRouter.NewLienRequest lienRequest
     }
 
 }
@@ -119,23 +119,23 @@ package IAstariaRouter {
 package IClearingHouse {
 
     struct IClearingHouse.AuctionStack {
-        uint256 lienId
-        uint256 amountOwed
-        uint40 end
+        {field}uint256 lienId
+        {field}uint256 amountOwed
+        {field}uint40 end
     }
 
     struct IClearingHouse.AuctionData {
-        uint256 startAmount
-        uint256 endAmount
-        uint48 startTime
-        uint48 endTime
-        address liquidator
-        address token
-        IClearingHouse.AuctionStack[] stack
+        {field}uint256 startAmount
+        {field}uint256 endAmount
+        {field}uint48 startTime
+        {field}uint48 endTime
+        {field}address liquidator
+        {field}address token
+        {field}IClearingHouse.AuctionStack[] stack
     }
 
     struct IClearingHouse.ClearingHouseStorage {
-        IClearingHouse.AuctionData auctionData
+        {field}IClearingHouse.AuctionData auctionData
     }
 
 }
@@ -168,44 +168,44 @@ package ICollateralToken {
     }
 
     struct ICollateralToken.Asset {
-        bool deposited
-        address clearingHouse
-        address tokenContract
-        uint256 tokenId
-        bytes32 auctionHash
+        {field}bool deposited
+        {field}address clearingHouse
+        {field}address tokenContract
+        {field}uint256 tokenId
+        {field}bytes32 auctionHash
     }
 
     struct ICollateralToken.CollateralStorage {
-        ITransferProxy(address) TRANSFER_PROXY
-        ILienToken(address) LIEN_TOKEN
-        IAstariaRouter(address) ASTARIA_ROUTER
-        ConsiderationInterface(address) SEAPORT
-        ConduitControllerInterface(address) CONDUIT_CONTROLLER
-        address CONDUIT
-        bytes32 CONDUIT_KEY
-        mapping(uint256 => bytes32) collateralIdToAuction
-        mapping(address => bool) flashEnabled
-        mapping(uint256 => ICollateralToken.Asset) idToUnderlying
-        mapping(address => address) securityHooks
+        {field}ITransferProxy(address) TRANSFER_PROXY
+        {field}ILienToken(address) LIEN_TOKEN
+        {field}IAstariaRouter(address) ASTARIA_ROUTER
+        {field}ConsiderationInterface(address) SEAPORT
+        {field}ConduitControllerInterface(address) CONDUIT_CONTROLLER
+        {field}address CONDUIT
+        {field}bytes32 CONDUIT_KEY
+        {field}mapping(uint256 => bytes32) collateralIdToAuction
+        {field}mapping(address => bool) flashEnabled
+        {field}mapping(uint256 => ICollateralToken.Asset) idToUnderlying
+        {field}mapping(address => address) securityHooks
     }
 
     struct ICollateralToken.ListUnderlyingForSaleParams {
-        ILienToken.Stack[] stack
-        uint256 listPrice
-        uint56 maxDuration
+        {field}ILienToken.Stack[] stack
+        {field}uint256 listPrice
+        {field}uint56 maxDuration
     }
 
     struct ICollateralToken.File {
-        ICollateralToken.FileType what
-        bytes data
+        {field}ICollateralToken.FileType what
+        {field}bytes data
     }
 
     struct ICollateralToken.AuctionVaultParams {
-        address settlementToken
-        uint256 collateralId
-        uint256 maxDuration
-        uint256 startingPrice
-        uint256 endingPrice
+        {field}address settlementToken
+        {field}uint256 collateralId
+        {field}uint256 maxDuration
+        {field}uint256 startingPrice
+        {field}uint256 endingPrice
     }
 
 }
@@ -250,75 +250,75 @@ package ILienToken {
     }
 
     struct ILienToken.File {
-        ILienToken.FileType what
-        bytes data
+        {field}ILienToken.FileType what
+        {field}bytes data
     }
 
     struct ILienToken.LienStorage {
-        uint8 maxLiens
-        ITransferProxy(address) TRANSFER_PROXY
-        IAstariaRouter(address) ASTARIA_ROUTER
-        ICollateralToken(address) COLLATERAL_TOKEN
-        mapping(uint256 => bytes32) collateralStateHash
-        mapping(uint256 => ILienToken.LienMeta) lienMeta
-        uint32 buyoutFeeNumerator
-        uint32 buyoutFeeDenominator
-        uint32 durationFeeCapNumerator
-        uint32 durationFeeCapDenominator
-        uint32 minDurationIncrease
-        uint32 minInterestBPS
+        {field}uint8 maxLiens
+        {field}ITransferProxy(address) TRANSFER_PROXY
+        {field}IAstariaRouter(address) ASTARIA_ROUTER
+        {field}ICollateralToken(address) COLLATERAL_TOKEN
+        {field}mapping(uint256 => bytes32) collateralStateHash
+        {field}mapping(uint256 => ILienToken.LienMeta) lienMeta
+        {field}uint32 buyoutFeeNumerator
+        {field}uint32 buyoutFeeDenominator
+        {field}uint32 durationFeeCapNumerator
+        {field}uint32 durationFeeCapDenominator
+        {field}uint32 minDurationIncrease
+        {field}uint32 minInterestBPS
     }
 
     struct ILienToken.LienMeta {
-        address payee
-        bool atLiquidation
+        {field}address payee
+        {field}bool atLiquidation
     }
 
     struct ILienToken.Details {
-        uint256 maxAmount
-        uint256 rate
-        uint256 duration
-        uint256 maxPotentialDebt
-        uint256 liquidationInitialAsk
+        {field}uint256 maxAmount
+        {field}uint256 rate
+        {field}uint256 duration
+        {field}uint256 maxPotentialDebt
+        {field}uint256 liquidationInitialAsk
     }
 
     struct ILienToken.Lien {
-        uint8 collateralType
-        address token
-        address vault
-        bytes32 strategyRoot
-        uint256 collateralId
-        ILienToken.Details details
+        {field}uint8 collateralType
+        {field}address token
+        {field}address vault
+        {field}bytes32 strategyRoot
+        {field}uint256 collateralId
+        {field}ILienToken.Details details
     }
 
     struct ILienToken.Point {
-        uint256 amount
-        uint40 last
-        uint40 end
-        uint256 lienId
+        {field}uint256 amount
+        {field}uint40 last
+        {field}uint40 end
+        {field}uint256 lienId
     }
 
     struct ILienToken.Stack {
-        ILienToken.Lien lien
-        ILienToken.Point point
+        {field}ILienToken.Lien lien
+        {field}ILienToken.Point point
     }
 
     struct ILienToken.LienActionEncumber {
-        uint256 amount
-        address receiver
-        ILienToken.Lien lien
-        ILienToken.Stack[] stack
+        {field}uint256 amount
+        {field}address receiver
+        {field}ILienToken.Lien lien
+        {field}ILienToken.Stack[] stack
     }
 
     struct ILienToken.LienActionBuyout {
-        bool chargeable
-        uint8 position
-        ILienToken.LienActionEncumber encumber
+        {field}bool chargeable
+        {field}uint8 position
+        {field}ILienToken.LienActionEncumber encumber
     }
 
     struct ILienToken.BuyoutLienParams {
-        uint256 lienSlope
-        uint256 lienEnd
+        {field}uint256 lienSlope
+        {field}uint256 lienEnd
     }
 
 }
@@ -327,23 +327,23 @@ package ITransferProxy {
 
 }
 
+IAstariaRouter.File::what --> IAstariaRouter.FileType
+ICollateralToken.ListUnderlyingForSaleParams::stack --> ILienToken.Stack
 ICollateralToken.File::what --> ICollateralToken.FileType
-ILienToken.Stack::point --> ILienToken.Point
-ILienToken.LienActionEncumber::stack --> ILienToken.Stack
-IAstariaRouter.NewLienRequest::stack --> ILienToken.Stack
-IAstariaRouter.NewLienRequest::strategy --> IAstariaRouter.StrategyDetailsParam
+ILienToken.LienActionEncumber::lien --> ILienToken.Lien
+ILienToken.LienActionBuyout::encumber --> ILienToken.LienActionEncumber
 IClearingHouse.ClearingHouseStorage::auctionData --> IClearingHouse.AuctionData
+ILienToken.Lien::details --> ILienToken.Details
+IClearingHouse.AuctionData::stack --> IClearingHouse.AuctionStack
+IAstariaRouter.NewLienRequest::strategy --> IAstariaRouter.StrategyDetailsParam
+ILienToken.LienActionEncumber::stack --> ILienToken.Stack
 ILienToken.Stack::lien --> ILienToken.Lien
 IAstariaRouter.Commitment::lienRequest --> IAstariaRouter.NewLienRequest
-IClearingHouse.AuctionData::stack --> IClearingHouse.AuctionStack
-ILienToken.LienActionEncumber::lien --> ILienToken.Lien
 IAstariaRouter.NewLienRequest::merkle --> IAstariaRouter.MerkleData
-ICollateralToken.ListUnderlyingForSaleParams::stack --> ILienToken.Stack
-ILienToken.LienStorage::lienMeta --> ILienToken.LienMeta
-ILienToken.LienActionBuyout::encumber --> ILienToken.LienActionEncumber
 ICollateralToken.CollateralStorage::idToUnderlying --> ICollateralToken.Asset
-ILienToken.Lien::details --> ILienToken.Details
+IAstariaRouter.NewLienRequest::stack --> ILienToken.Stack
+ILienToken.LienStorage::lienMeta --> ILienToken.LienMeta
 ILienToken.File::what --> ILienToken.FileType
-IAstariaRouter.File::what --> IAstariaRouter.FileType
+ILienToken.Stack::point --> ILienToken.Point
 
 @enduml

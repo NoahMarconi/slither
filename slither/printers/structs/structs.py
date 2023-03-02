@@ -80,7 +80,7 @@ class STRUCTS(AbstractPrinter):
                         if isinstance(elem.type.type_to, UserDefinedType) and not isinstance(elem.type.type_to.type, Contract):
                             connections.append(f"{struct.canonical_name}::{elem.name} --> {self.__getElemType(elem.type.type_to)}")
 
-                    structString = structString + f"        {elemType} {elem.name}\n"
+                    structString = structString + f"        {{field}}{elemType} {elem.name}\n"
                 
                 structString = structString + "    }\n\n"
                 pkgString = pkgString + structString
